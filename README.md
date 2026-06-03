@@ -16,14 +16,15 @@ Official landing page for [Grevoo](https://grevoo.co.in) — a technology holdin
 
 ## Security
 
-This project includes a multi-layer security setup:
+This site uses **strict security** — no inline JavaScript or CSS:
 
-- **`_headers`** — Security headers for Netlify / Cloudflare Pages
-- **`.htaccess`** — Apache firewall headers + HTTPS redirect (for cPanel hosting)
-- **`security.txt`** — Responsible disclosure contact
-- **CSP + XSS protection** — Embedded in `index.html`
+- `assets/css/styles.css` — all styles (CSP-safe)
+- `assets/js/app.js` — all scripts (CSP-safe)
+- **SRI integrity hashes** on both assets
+- **`_headers`** / **`.htaccess`** — firewall-grade HTTP headers
+- **`SECURITY.md`** — full policy and production checklist
 
-For production, enable **Cloudflare** (free) in front of your domain for WAF, DDoS protection, and bot filtering.
+**Required for production:** Put [Cloudflare](https://cloudflare.com) in front of `grevoo.co.in` for WAF, DDoS protection, and bot filtering (GitHub Pages alone does not send custom security headers).
 
 ## License
 
