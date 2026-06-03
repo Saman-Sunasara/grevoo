@@ -1,6 +1,27 @@
     (function () {
       'use strict';
 
+      /* ---- Smooth Scroll (Lenis) ---- */
+      let lenis;
+      if (typeof Lenis !== 'undefined') {
+        lenis = new Lenis({
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
+          orientation: 'vertical',
+          gestureOrientation: 'vertical',
+          smoothWheel: true,
+          smoothTouch: false,
+          touchMultiplier: 1.5,
+        });
+        window.lenis = lenis;
+
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+      }
+
       /* ---- Custom Cursor ---- */
       const dot = document.getElementById('cursorDot');
       const ring = document.getElementById('cursorRing');
@@ -81,10 +102,17 @@
       /* ---- Subtle Hero Parallax ---- */
       const heroGlow = document.querySelector('.hero-glow');
       if (heroGlow && window.matchMedia('(pointer: fine)').matches) {
-        window.addEventListener('scroll', function () {
-          const y = window.scrollY * 0.15;
-          heroGlow.style.transform = 'translateY(' + y + 'px)';
-        }, { passive: true });
+        if (lenis) {
+          lenis.on('scroll', function (e) {
+            const y = e.scroll * 0.15;
+            heroGlow.style.transform = 'translateY(' + y + 'px)';
+          });
+        } else {
+          window.addEventListener('scroll', function () {
+            const y = window.scrollY * 0.15;
+            heroGlow.style.transform = 'translateY(' + y + 'px)';
+          }, { passive: true });
+        }
       }
 
       /* ---- Active Nav Link ---- */
@@ -290,8 +318,12 @@
           if (target) {
             e.preventDefault();
             const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 88;
-            const top = target.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({ top: top, behavior: 'smooth' });
+            if (lenis) {
+              lenis.scrollTo(target, { offset: -offset, duration: 1.2 });
+            } else {
+              const top = target.getBoundingClientRect().top + window.scrollY - offset;
+              window.scrollTo({ top: top, behavior: 'smooth' });
+            }
           }
         });
       });
