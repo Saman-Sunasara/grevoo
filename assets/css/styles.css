@@ -930,6 +930,28 @@
       opacity: 1;
     }
 
+    .company-card--trusthire {
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .company-card--trusthire:focus-visible {
+      outline: none;
+      transform: translateY(-8px);
+      box-shadow: 0 24px 64px var(--shadow-lg);
+      border-color: rgba(45, 74, 42, 0.2);
+    }
+
+    .company-card--trusthire:focus-visible::before {
+      border-color: var(--color-secondary);
+      box-shadow: 0 0 0 4px rgba(45,74,42,0.08);
+    }
+
+    .company-card--trusthire:hover::after,
+    .company-card--trusthire:focus-visible::after {
+      opacity: 1;
+    }
+
     .company-card-header {
       display: flex;
       align-items: flex-start;
@@ -1059,6 +1081,11 @@
     .company-card--migrova:hover .company-launch,
     .company-card--migrova:focus-visible .company-launch {
       color: #2D7870;
+      gap: 0.7rem;
+    }
+
+    .company-card--trusthire:hover .company-launch,
+    .company-card--trusthire:focus-visible .company-launch {
       gap: 0.7rem;
     }
 

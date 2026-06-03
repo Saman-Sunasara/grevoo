@@ -185,7 +185,7 @@
             'Simple dashboard to manage all employee records'
           ],
           audience: '<strong>Ideal for:</strong> SMEs, factories, retail shops, security firms, and any business hiring domestic or contract workers.',
-          url: 'https://trusthire.grevoo.co.in'
+          url: 'https://trust-hire-plum.vercel.app/'
         },
         sehat: {
           icon: String.fromCodePoint(0x1F3E5),
