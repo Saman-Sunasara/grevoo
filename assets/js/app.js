@@ -134,13 +134,15 @@
         counterObserver.observe(section);
       });
 
-      /* ---- Project Modal ---- */
+            /* ---- Project Modal ---- */
       const projects = {
         ssmarketing: {
-          icon: '📸', iconClass: 'gold', iconBg: 'rgba(201,168,76,0.15)',
+          icon: String.fromCodePoint(0x1F4F8),
+          iconClass: 'gold',
+          iconBg: 'rgba(201,168,76,0.15)',
           title: 'SS Marketing Agency',
           tagline: 'AI-powered digital marketing for Gujarat businesses',
-          desc: 'SS Marketing Agency helps local businesses grow their online presence without hiring a full marketing team. From content creation to social media management — everything runs through one AI-powered platform.',
+          desc: 'SS Marketing Agency helps local businesses grow their online presence without hiring a full marketing team. From content creation to social media management - everything runs through one AI-powered platform.',
           features: [
             'AI-generated posts, reels, and ad copy tailored to your brand',
             'Social media scheduling across Instagram, Facebook, and WhatsApp',
@@ -152,10 +154,12 @@
           url: 'https://ssmarketing.grevoo.co.in'
         },
         migrova: {
-          icon: '✈️', iconClass: 'blue-green', iconBg: 'rgba(45,120,110,0.15)',
+          icon: String.fromCodePoint(0x2708, 0xFE0F),
+          iconClass: 'blue-green',
+          iconBg: 'rgba(45,120,110,0.15)',
           title: 'Migrova',
-          tagline: 'India\'s AI-powered visa and immigration platform',
-          desc: 'Migrova simplifies the entire immigration journey — from checking visa eligibility to tracking your application. Connect with verified consultants and stay informed at every step.',
+          tagline: "India's AI-powered visa and immigration platform",
+          desc: 'Migrova simplifies the entire immigration journey - from checking visa eligibility to tracking your application. Connect with verified consultants and stay informed at every step.',
           features: [
             'AI visa eligibility checker for multiple countries',
             'Verified immigration consultants on one platform',
@@ -167,13 +171,15 @@
           url: 'https://migrova.grevoo.co.in'
         },
         trusthire: {
-          icon: '✅', iconClass: 'green', iconBg: 'rgba(45,74,42,0.12)',
+          icon: String.fromCodePoint(0x2705),
+          iconClass: 'green',
+          iconBg: 'rgba(45,74,42,0.12)',
           title: 'TrustHire',
-          tagline: 'Background verification at ₹99 per check',
+          tagline: 'Background verification at Rs. 99 per check',
           desc: 'TrustHire makes employee verification affordable and fast for Indian small businesses. Hire with confidence knowing every worker has been properly verified.',
           features: [
             'Identity, address, and criminal record verification',
-            'Flat ₹99 pricing per background check',
+            'Flat Rs. 99 pricing per background check',
             'Digital reports delivered within 48 hours',
             'Bulk verification for teams and seasonal hiring',
             'Simple dashboard to manage all employee records'
@@ -182,10 +188,12 @@
           url: 'https://trusthire.grevoo.co.in'
         },
         sehat: {
-          icon: '🏥', iconClass: 'teal', iconBg: 'rgba(32,128,128,0.12)',
+          icon: String.fromCodePoint(0x1F3E5),
+          iconClass: 'teal',
+          iconBg: 'rgba(32,128,128,0.12)',
           title: 'Sehat',
           tagline: 'Digital health records for every Indian family',
-          desc: 'Sehat gives every family a secure, lifelong health record — prescriptions, lab reports, vaccination history, and doctor visits stored in one place, accessible anytime.',
+          desc: 'Sehat gives every family a secure, lifelong health record - prescriptions, lab reports, vaccination history, and doctor visits stored in one place, accessible anytime.',
           features: [
             'Unified health profile for every family member',
             'Upload and store prescriptions, reports, and scans',
@@ -197,10 +205,12 @@
           url: 'https://sehat.grevoo.co.in'
         },
         rozgar: {
-          icon: '💼', iconClass: 'gold', iconBg: 'rgba(201,168,76,0.15)',
+          icon: String.fromCodePoint(0x1F4BC),
+          iconClass: 'gold',
+          iconBg: 'rgba(201,168,76,0.15)',
           title: 'Rozgar',
-          tagline: 'India\'s hiring operating system',
-          desc: 'Rozgar connects skilled workers with employers across India — from village to city. Verified profiles, local language support, and a hiring process built for Bharat.',
+          tagline: "India's hiring operating system",
+          desc: 'Rozgar connects skilled workers with employers across India - from village to city. Verified profiles, local language support, and a hiring process built for Bharat.',
           features: [
             'Worker profiles with verified skills and experience',
             'Employer job posting and candidate matching',
@@ -212,7 +222,6 @@
           url: 'https://rozgar.grevoo.co.in'
         }
       };
-
       const modal = document.getElementById('projectModal');
       const modalClose = document.getElementById('modalClose');
       const modalCloseBtn = document.getElementById('modalCloseBtn');

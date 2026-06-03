@@ -35,6 +35,6 @@ See [LICENSE](LICENSE) for full terms. This is proprietary software — not open
 ## Contact
 
 - Email: samansunsara.39@gmail.com
-- WhatsApp: +91 73692 24131
+- WhatsApp: 7359224131
 - LinkedIn: [saman-sunasara-59072228b](https://www.linkedin.com/in/saman-sunasara-59072228b/)
 - Instagram: [@_sxmann._](https://www.instagram.com/_sxmann._/)
