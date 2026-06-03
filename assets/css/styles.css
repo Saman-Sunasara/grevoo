@@ -428,6 +428,10 @@
       transform: rotate(-45deg) translate(5px, -5px);
     }
 
+    .nav-mobile-cta {
+      display: none;
+    }
+
     @media (max-width: 968px) {
       .nav-links, .nav-cta { display: none; }
 
@@ -448,6 +452,7 @@
       }
 
       .nav-mobile-cta {
+        display: block;
         margin-top: 0.5rem;
         padding-top: 1rem;
         border-top: 1px solid var(--border);
@@ -1705,7 +1710,7 @@
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      grid-template-columns: 1.5fr 1fr 1fr;
       gap: 3rem;
       margin-bottom: 3rem;
     }
@@ -1733,8 +1738,12 @@
       gap: 0.625rem;
     }
 
-    .footer-col a {
+    .footer-col li {
       font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .footer-col a {
       color: var(--text-primary);
       transition: color 0.2s;
     }
