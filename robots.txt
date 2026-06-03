@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://grevoo.co.in/sitemap.xml
+
+# © 2025 Grevoo — Saman Sunasara. All rights reserved.
