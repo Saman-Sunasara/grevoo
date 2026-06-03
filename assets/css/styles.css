@@ -1192,7 +1192,7 @@
       transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       transform-origin: center center;
       will-change: transform, filter;
-      background: var(--bg-primary);
+      background: transparent;
       transform-style: preserve-3d;
       backface-visibility: hidden;
     }
