@@ -202,7 +202,7 @@
             'Appointment and medication reminders'
           ],
           audience: '<strong>Ideal for:</strong> Families, elderly parents, chronic patients, and anyone who wants their medical history organized and accessible.',
-          url: 'https://sehat.grevoo.co.in'
+          url: 'https://sehat-rho.vercel.app'
         },
         rozgar: {
           icon: String.fromCodePoint(0x1F4BC),
