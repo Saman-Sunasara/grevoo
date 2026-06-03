@@ -1187,21 +1187,29 @@
       gap: 0.7rem;
     }
 
-    /* ========== PAGE WRAPPER FOR IOS TRANSITION ========== */
+    /* ========== PAGE WRAPPER FOR 3D PERSPECTIVE TRANSITION ========== */
     .page-wrapper {
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       transform-origin: center center;
       will-change: transform, filter;
       background: var(--bg-primary);
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+    }
+
+    body {
+      perspective: 1400px;
+      perspective-origin: center center;
     }
 
     body.modal-active {
-      background: #0b140a !important;
+      background: #080f08 !important;
+      overflow: hidden;
     }
 
     body.modal-active .page-wrapper {
-      transform: scale(0.95) translateY(-8px);
-      filter: brightness(0.65) blur(1px);
+      transform: perspective(1400px) rotateX(6deg) translateY(-16px) translateZ(-80px);
+      filter: brightness(0.6) blur(0.5px);
       border-radius: var(--radius-xl);
       overflow: hidden;
       pointer-events: none;
@@ -1212,16 +1220,16 @@
       position: fixed;
       inset: 0;
       z-index: 2000;
-      background: rgba(11, 20, 10, 0.4);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      background: rgba(8, 15, 8, 0.35);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
     }
 
     .modal-overlay.open {
@@ -1237,16 +1245,20 @@
       overflow-y: auto;
       padding: 2.5rem;
       position: relative;
-      transform: translateY(120px) scale(0.85);
+      
+      /* Pushed forward in Z-space, tilted backward, and slid down */
+      transform: perspective(1400px) rotateX(-12deg) translateY(140px) translateZ(100px);
       opacity: 0;
-      transition: transform 0.65s cubic-bezier(0.34, 1.3, 0.64, 1), opacity 0.4s ease;
-      box-shadow: 0 32px 80px rgba(11, 20, 10, 0.25);
+      
+      transition: transform 0.75s cubic-bezier(0.34, 1.25, 0.64, 1), opacity 0.5s ease;
+      box-shadow: 0 48px 96px rgba(8, 15, 8, 0.3);
       border: 1px solid var(--border);
       will-change: transform, opacity;
+      backface-visibility: hidden;
     }
 
     .modal-overlay.open .modal {
-      transform: translateY(0) scale(1);
+      transform: perspective(1400px) rotateX(0deg) translateY(0) translateZ(0);
       opacity: 1;
     }
 
