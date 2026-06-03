@@ -248,6 +248,23 @@
           ],
           audience: '<strong>Ideal for:</strong> Workers seeking jobs, contractors, factories, shops, and businesses hiring across tier-2 and tier-3 cities.',
           url: 'https://rozgar.grevoo.co.in'
+        },
+        studio: {
+          icon: String.fromCodePoint(0x1F4BB),
+          iconClass: 'purple',
+          iconBg: 'rgba(106, 57, 179, 0.15)',
+          title: 'Grevoo Studio',
+          tagline: 'Premium design and development studio',
+          desc: 'Grevoo Studio designs and builds premium, high-performance websites, custom web applications, and e-commerce platforms that help brands scale and stand out.',
+          features: [
+            'Premium UI/UX design tailored to your brand identity',
+            'Lightning-fast, SEO-optimized web development',
+            'Full-stack custom web applications and SaaS products',
+            'Secure and scalable e-commerce store integration',
+            'Dedicated technical support and maintenance'
+          ],
+          audience: '<strong>Ideal for:</strong> Startups, brands, and businesses looking to build a high-converting, professional, and unique online presence.',
+          url: 'https://grevoo-studio.vercel.app/'
         }
       };
       const modal = document.getElementById('projectModal');
@@ -287,7 +304,7 @@
       });
 
       document.querySelectorAll('.vision-item').forEach(function (item, i) {
-        const ids = ['migrova', 'trusthire', 'sehat', 'rozgar', 'ssmarketing'];
+        const ids = ['migrova', 'trusthire', 'sehat', 'rozgar', 'ssmarketing', 'studio'];
         item.style.cursor = 'pointer';
         item.addEventListener('click', function () { openModal(ids[i]); });
       });

@@ -1187,20 +1187,6 @@
       gap: 0.7rem;
     }
 
-    /* ========== STUDIO ========== */
-    .studio {
-      padding: 6rem 0;
-      background: var(--bg-primary);
-      border-top: 1px solid var(--border);
-    }
-
-    .studio-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
     /* ========== PROJECT MODAL ========== */
     .modal-overlay {
       position: fixed;
