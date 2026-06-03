@@ -3,23 +3,30 @@
 
       /* ---- Smooth Scroll (Lenis) ---- */
       let lenis;
-      if (typeof Lenis !== 'undefined') {
-        lenis = new Lenis({
-          duration: 1.2,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
-          orientation: 'vertical',
-          gestureOrientation: 'vertical',
-          smoothWheel: true,
-          smoothTouch: false,
-          touchMultiplier: 1.5,
-        });
-        window.lenis = lenis;
+      try {
+        if (typeof Lenis !== 'undefined') {
+          lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            smoothTouch: false,
+            touchMultiplier: 1.5,
+          });
+          window.lenis = lenis;
 
-        function raf(time) {
-          lenis.raf(time);
+          function raf(time) {
+            if (lenis) {
+              lenis.raf(time);
+              requestAnimationFrame(raf);
+            }
+          }
           requestAnimationFrame(raf);
         }
-        requestAnimationFrame(raf);
+      } catch (e) {
+        console.error("Lenis smooth scroll failed to initialize:", e);
+        lenis = null;
       }
 
       /* ---- Scrollytelling Animation Engine ---- */
@@ -366,7 +373,9 @@
       let mouseX = 0, mouseY = 0;
       let ringX = 0, ringY = 0;
 
-      if (window.matchMedia('(pointer: fine)').matches) {
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        document.body.classList.add('has-custom-cursor');
+
         document.addEventListener('mousemove', function (e) {
           mouseX = e.clientX;
           mouseY = e.clientY;
@@ -388,6 +397,9 @@
           el.addEventListener('mouseenter', function () { ring.classList.add('hover'); });
           el.addEventListener('mouseleave', function () { ring.classList.remove('hover'); });
         });
+      } else {
+        if (dot) dot.style.display = 'none';
+        if (ring) ring.style.display = 'none';
       }
 
       /* ---- Nav Scroll Shrink ---- */
@@ -675,9 +687,15 @@
           if (target) {
             e.preventDefault();
             const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 88;
-            if (lenis) {
-              lenis.scrollTo(target, { offset: -offset, duration: 1.2 });
-            } else {
+            try {
+              if (lenis) {
+                lenis.scrollTo(target, { offset: -offset, duration: 1.2 });
+              } else {
+                const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+              }
+            } catch (err) {
+              console.warn("Lenis scrollTo failed, falling back to native scroll:", err);
               const top = target.getBoundingClientRect().top + window.scrollY - offset;
               window.scrollTo({ top: top, behavior: 'smooth' });
             }

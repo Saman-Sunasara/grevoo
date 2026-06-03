@@ -66,7 +66,6 @@
       line-height: 1.65;
       letter-spacing: -0.011em;
       overflow-x: hidden;
-      cursor: none;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
@@ -114,8 +113,21 @@
       opacity: 0.6;
     }
 
+    @media (hover: hover) and (pointer: fine) {
+      body.has-custom-cursor {
+        cursor: none;
+      }
+      body.has-custom-cursor a,
+      body.has-custom-cursor button,
+      body.has-custom-cursor .btn,
+      body.has-custom-cursor .company-card,
+      body.has-custom-cursor [role="button"] {
+        cursor: none;
+      }
+    }
+
     @media (max-width: 768px) {
-      .cursor-dot, .cursor-ring { display: none; }
+      .cursor-dot, .cursor-ring { display: none !important; }
     }
 
     /* Typography */
@@ -173,7 +185,7 @@
       border-radius: 50px;
       border: 2px solid transparent;
       transition: var(--transition);
-      cursor: none;
+      cursor: pointer;
       white-space: nowrap;
     }
 
