@@ -290,11 +290,13 @@
         });
         modal.classList.add('open');
         document.body.style.overflow = 'hidden';
+        document.body.classList.add('modal-active');
       }
 
       function closeModal() {
         modal.classList.remove('open');
         document.body.style.overflow = '';
+        document.body.classList.remove('modal-active');
       }
 
       document.querySelectorAll('.company-card[data-company]').forEach(function (card) {
