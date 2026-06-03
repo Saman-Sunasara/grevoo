@@ -22,6 +22,13 @@
       --radius: 12px;
       --radius-lg: 20px;
       --radius-xl: 28px;
+      --wp-bg: #FAFAF8;
+      --wp-primary: #3D2000;
+      --wp-gold: #C9893A;
+      --wp-border: #E8D5BE;
+      --wp-card: #FFFFFF;
+      --wp-radius: 16px;
+      --wp-text-desc: #5C3D1E;
     }
 
     *, *::before, *::after {
@@ -1797,6 +1804,219 @@
       font-size: 0.8125rem;
       color: var(--text-secondary);
       line-height: 1.8;
+    }
+
+    /* ========== WORKPLACE POLICY SECTION ========== */
+    .workplace-policy {
+      padding: 6rem 0;
+      background: var(--wp-bg);
+      color: var(--wp-primary);
+    }
+
+    .workplace-policy .section-header {
+      margin-bottom: 4rem;
+    }
+
+    .workplace-policy .section-header h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--wp-primary);
+      margin-bottom: 1.25rem;
+    }
+
+    .workplace-policy .section-header p {
+      color: var(--wp-text-desc);
+      max-width: 700px;
+      margin: 0 auto;
+      font-family: 'Inter', var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.75;
+    }
+
+    .workplace-policy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 5rem;
+    }
+
+    .policy-card {
+      background: var(--wp-card);
+      border: 1px solid var(--wp-border);
+      border-radius: var(--wp-radius);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+      text-align: left;
+    }
+
+    /* Bottom gold line animation on hover */
+    .policy-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--wp-gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .policy-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(61, 32, 0, 0.12);
+    }
+
+    .policy-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .policy-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .policy-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(61, 32, 0, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .policy-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--wp-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    .policy-card h3 {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--wp-primary);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .policy-card p {
+      font-family: 'Inter', var(--font-body);
+      font-size: 15px;
+      color: var(--wp-text-desc);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ========== BOTTOM BANNER ========== */
+    .policy-banner {
+      background: var(--wp-primary);
+      border-radius: var(--wp-radius);
+      padding: 3.5rem;
+      text-align: center;
+      color: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 48px rgba(61, 32, 0, 0.15);
+    }
+
+    .policy-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(201, 137, 58, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .policy-banner-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .policy-banner h3 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      margin-bottom: 0.75rem;
+      color: #FFFFFF;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .policy-banner p {
+      font-family: 'Inter', var(--font-body);
+      font-size: 1.0625rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2.25rem;
+      line-height: 1.6;
+    }
+
+    .policy-banner-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-wp-gold {
+      background: var(--wp-gold);
+      color: #FFFFFF;
+      border: 1px solid var(--wp-gold);
+    }
+
+    .btn-wp-gold:hover {
+      background: #b5762d;
+      border-color: #b5762d;
+      color: #FFFFFF;
+    }
+
+    .btn-wp-white-outline {
+      background: transparent;
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-wp-white-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #FFFFFF;
+      color: #FFFFFF;
+    }
+
+    /* Tablet breakpoint (up to 1023px) */
+    @media (max-width: 1023px) {
+      .workplace-policy-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    /* Mobile breakpoint (up to 767px) */
+    @media (max-width: 767px) {
+      .workplace-policy-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        margin-bottom: 3.5rem;
+      }
+      .policy-banner {
+        padding: 2.5rem 1.5rem;
+      }
+      .policy-banner-actions .btn {
+        width: 100%;
+      }
     }
 
     @media (max-width: 768px) {
