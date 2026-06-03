@@ -151,7 +151,7 @@
             'Dedicated strategy for Gujarat SMEs and local brands'
           ],
           audience: '<strong>Ideal for:</strong> Shop owners, clinics, restaurants, startups, and local brands in Gujarat who want professional marketing without agency costs.',
-          url: 'https://ssmarketing.grevoo.co.in'
+          url: 'https://ss-marketing-agency.vercel.app/'
         },
         migrova: {
           icon: String.fromCodePoint(0x2708, 0xFE0F),
