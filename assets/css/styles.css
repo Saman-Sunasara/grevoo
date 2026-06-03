@@ -964,6 +964,62 @@
       opacity: 1;
     }
 
+    /* Sehat Card Hover/Focus */
+    .company-card--sehat {
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .company-card--sehat:hover,
+    .company-card--sehat:focus-visible {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 28px 72px rgba(28, 43, 26, 0.15), 0 0 0 1px rgba(32, 128, 128, 0.16);
+      border-color: rgba(32, 128, 128, 0.28);
+    }
+
+    .company-card--sehat:hover::before,
+    .company-card--sehat:focus-visible::before {
+      border-color: #208080;
+      box-shadow: 0 0 0 4px rgba(32, 128, 128, 0.12), 0 0 32px rgba(32, 128, 128, 0.12);
+    }
+
+    .company-card--sehat:hover::after,
+    .company-card--sehat:focus-visible::after {
+      opacity: 1;
+    }
+
+    .company-card--sehat::after {
+      background: linear-gradient(90deg, #208080, #33a6a6);
+    }
+
+    /* Studio Card Hover/Focus */
+    .company-card--studio {
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .company-card--studio:hover,
+    .company-card--studio:focus-visible {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 28px 72px rgba(28, 43, 26, 0.15), 0 0 0 1px rgba(106, 57, 179, 0.16);
+      border-color: rgba(106, 57, 179, 0.28);
+    }
+
+    .company-card--studio:hover::before,
+    .company-card--studio:focus-visible::before {
+      border-color: #6a39b3;
+      box-shadow: 0 0 0 4px rgba(106, 57, 179, 0.12), 0 0 32px rgba(106, 57, 179, 0.12);
+    }
+
+    .company-card--studio:hover::after,
+    .company-card--studio:focus-visible::after {
+      opacity: 1;
+    }
+
+    .company-card--studio::after {
+      background: linear-gradient(90deg, #6a39b3, #8a4af3);
+    }
+
     .company-card-header {
       display: flex;
       align-items: flex-start;
@@ -985,6 +1041,7 @@
     .company-icon.blue-green { background: rgba(45,120,110,0.15); }
     .company-icon.green { background: rgba(45,74,42,0.12); }
     .company-icon.teal { background: rgba(32,128,128,0.12); }
+    .company-icon.purple { background: rgba(106, 57, 179, 0.15); }
 
     .status-badge {
       font-family: var(--font-mono);
@@ -1017,6 +1074,7 @@
     .color-tag.blue-green { color: #2D7870; }
     .color-tag.green { color: var(--color-secondary); }
     .color-tag.teal { color: #208080; }
+    .color-tag.purple { color: #6a39b3; }
 
     .company-card h3 {
       font-size: 1.4375rem;
@@ -1099,6 +1157,32 @@
     .company-card--trusthire:hover .company-launch,
     .company-card--trusthire:focus-visible .company-launch {
       gap: 0.7rem;
+    }
+
+    .company-card--sehat:hover .company-launch,
+    .company-card--sehat:focus-visible .company-launch {
+      color: #208080;
+      gap: 0.7rem;
+    }
+
+    .company-card--studio:hover .company-launch,
+    .company-card--studio:focus-visible .company-launch {
+      color: #6a39b3;
+      gap: 0.7rem;
+    }
+
+    /* ========== STUDIO ========== */
+    .studio {
+      padding: 6rem 0;
+      background: var(--bg-primary);
+      border-top: 1px solid var(--border);
+    }
+
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin: 0 auto;
     }
 
     /* ========== PROJECT MODAL ========== */
