@@ -168,7 +168,7 @@
             'Transparent pricing with no hidden agent fees'
           ],
           audience: '<strong>Ideal for:</strong> Students, professionals, and families planning to study, work, or settle abroad.',
-          url: 'https://migrova.grevoo.co.in'
+          url: 'https://migrova-pi.vercel.app/'
         },
         trusthire: {
           icon: String.fromCodePoint(0x2705),

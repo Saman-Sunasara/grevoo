@@ -907,6 +907,29 @@
       opacity: 1;
     }
 
+    .company-card--migrova {
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .company-card--migrova:hover,
+    .company-card--migrova:focus-visible {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 28px 72px rgba(28, 43, 26, 0.15), 0 0 0 1px rgba(45, 120, 110, 0.16);
+      border-color: rgba(45, 120, 110, 0.28);
+    }
+
+    .company-card--migrova:hover::before,
+    .company-card--migrova:focus-visible::before {
+      border-color: #2D7870;
+      box-shadow: 0 0 0 4px rgba(45, 120, 110, 0.12), 0 0 32px rgba(45, 120, 110, 0.12);
+    }
+
+    .company-card--migrova:hover::after,
+    .company-card--migrova:focus-visible::after {
+      opacity: 1;
+    }
+
     .company-card-header {
       display: flex;
       align-items: flex-start;
@@ -1030,6 +1053,12 @@
     .company-card--ssmarketing:hover .company-launch,
     .company-card--ssmarketing:focus-visible .company-launch {
       color: var(--color-gold);
+      gap: 0.7rem;
+    }
+
+    .company-card--migrova:hover .company-launch,
+    .company-card--migrova:focus-visible .company-launch {
+      color: #2D7870;
       gap: 0.7rem;
     }
 
