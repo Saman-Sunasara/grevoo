@@ -143,10 +143,9 @@
           if (hero) {
             width = canvas.width = hero.offsetWidth;
             height = canvas.height = hero.offsetHeight;
+            initNodes();
           }
         }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
 
         // Track Mouse relative to the hero section
         const heroSection = document.querySelector('.hero');
@@ -198,8 +197,8 @@
             });
           }
         }
-        initNodes();
-        window.addEventListener('resize', initNodes);
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
 
         // Spawn a packet moving between nodes
         function spawnPacket(fromNode, toNode) {
@@ -367,40 +366,7 @@
         }, 150);
       }
 
-      /* ---- Custom Cursor ---- */
-      const dot = document.getElementById('cursorDot');
-      const ring = document.getElementById('cursorRing');
-      let mouseX = 0, mouseY = 0;
-      let ringX = 0, ringY = 0;
 
-      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-        document.body.classList.add('has-custom-cursor');
-
-        document.addEventListener('mousemove', function (e) {
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-          dot.style.left = mouseX + 'px';
-          dot.style.top = mouseY + 'px';
-        });
-
-        function animateRing() {
-          ringX += (mouseX - ringX) * 0.15;
-          ringY += (mouseY - ringY) * 0.15;
-          ring.style.left = ringX + 'px';
-          ring.style.top = ringY + 'px';
-          requestAnimationFrame(animateRing);
-        }
-        animateRing();
-
-        const hoverTargets = document.querySelectorAll('a, button, .company-card, .btn');
-        hoverTargets.forEach(function (el) {
-          el.addEventListener('mouseenter', function () { ring.classList.add('hover'); });
-          el.addEventListener('mouseleave', function () { ring.classList.remove('hover'); });
-        });
-      } else {
-        if (dot) dot.style.display = 'none';
-        if (ring) ring.style.display = 'none';
-      }
 
       /* ---- Nav Scroll Shrink ---- */
       const nav = document.getElementById('nav');
@@ -639,12 +605,14 @@
           featuresEl.appendChild(li);
         });
         modal.classList.add('open');
+        document.documentElement.classList.add('modal-active');
         document.body.style.overflow = 'hidden';
         document.body.classList.add('modal-active');
       }
 
       function closeModal() {
         modal.classList.remove('open');
+        document.documentElement.classList.remove('modal-active');
         document.body.style.overflow = '';
         document.body.classList.remove('modal-active');
       }
